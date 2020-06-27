@@ -6,11 +6,6 @@ if (length(args) == 0) {
 } else if (length(args) == 1) {
   port <- args[1]
 }
-
+rmarkdown::run(shiny_args = list(host = '0.0.0.0', port = as.numeric(port)))
 print(paste("Listening on port", port))
 
-shiny::runApp(
-  appDir = getwd(),
-  host = "0.0.0.0",
-  port = as.numeric(port)
-)
